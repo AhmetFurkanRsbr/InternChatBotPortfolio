@@ -206,10 +206,10 @@ export default function Gallery() {
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col"
+              className="relative w-full max-w-5xl max-h-[90vh] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col"
             >
               {/* Resim Alanı */}
-              <div className="relative aspect-[16/10] md:aspect-video bg-black flex items-center justify-center group/modal">
+              <div className="relative shrink-0 aspect-[16/10] md:aspect-video bg-black flex items-center justify-center group/modal">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImageIndex}
@@ -228,19 +228,19 @@ export default function Gallery() {
                   <>
                     <button 
                       onClick={prevImage}
-                      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
+                      className="absolute z-10 left-4 md:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button 
                       onClick={nextImage}
-                      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
+                      className="absolute z-10 right-4 md:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
                     
                     {/* Resim Sayacı */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-sm font-medium text-white border border-white/10">
+                    <div className="absolute z-10 bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-sm font-medium text-white border border-white/10">
                       {currentImageIndex + 1} / {selectedFeature.images.length}
                     </div>
                   </>
@@ -248,7 +248,7 @@ export default function Gallery() {
               </div>
 
               {/* Alt Bilgi Alanı */}
-              <div className="p-6 md:p-8 bg-slate-900 border-t border-slate-800">
+              <div className="p-6 md:p-8 bg-slate-900 border-t border-slate-800 overflow-y-auto">
                 <h3 className="text-2xl font-bold text-white mb-2">{selectedFeature.title}</h3>
                 <p className="text-slate-400 leading-relaxed">{selectedFeature.description}</p>
               </div>
