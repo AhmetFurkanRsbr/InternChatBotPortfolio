@@ -11,13 +11,42 @@ import stajyerDegerlendirmesi from '../assets/Stajyer Değerlendirmesi.png';
 import sss from '../assets/Sıkça Sorulan Sorular.png';
 import sifreUnuttum from '../assets/Şifremi Unutum.png';
 
+// Yeni İsimlendirilmiş Görseller
+import dashboardOgrenci from '../assets/dashboardOgrenci.png';
+import evrakYukleme from '../assets/evrak yükleme.png';
+import stajBasvuruTanimlama from '../assets/staj başvuru tanımlama.png';
+import stajBasvuruTanimlama2 from '../assets/staj başvuru tanımlama (2).png';
+
+import sssYeni from '../assets/SSS.png';
+import yonetmelik from '../assets/yönetmelik.png';
+import chatbotSoru from '../assets/chatbotSorusu.png';
+import chatbotSoru2 from '../assets/chatbotSorusu2.png';
+import chatbotSoru3 from '../assets/chatbotsorusu3.png';
+import chatbotSoru4 from '../assets/chatbotSorusu4.png';
+import chatbotSoru5 from '../assets/CHATBOTsORU5.png';
+import chatbotSoru6 from '../assets/CHATBOTsORU6.png';
+import chatbotSoruAkademik from '../assets/chatbotSorusu-AkademikOnay.png';
+
+import girisYap from '../assets/Giriş Yap.png';
+import kayitOl from '../assets/Kayıt Ol.png';
+import kayitOl2 from '../assets/Kayıt Ol (2).png';
+import kayitOl3 from '../assets/Kayıt Ol (3).png';
+
+// Diğer tüm "Ekran görüntüsü..." dosyalarını Vite ile otomatik dahil etme
+const ekranGoruntuleriObj = import.meta.glob('../assets/Ekran görüntüsü*.png', { eager: true, import: 'default' });
+const ekranGoruntuleri = Object.values(ekranGoruntuleriObj);
+
 const galleryFeatures = [
   {
     title: "Öğrenci Staj Paneli",
-    description: "Öğrencilerin profillerini görüntülediği ve staj başvuru süreçlerini anlık takip ettiği ekranlar.",
+    description: "Öğrencilerin profillerini görüntülediği, staj başvuru süreçlerini anlık takip ettiği ve evrak yüklediği ekranlar.",
     images: [
+      dashboardOgrenci,
       ogrProfil,
-      stajDurumu
+      stajDurumu,
+      stajBasvuruTanimlama,
+      stajBasvuruTanimlama2,
+      evrakYukleme
     ]
   },
   {
@@ -32,18 +61,37 @@ const galleryFeatures = [
   },
   {
     title: "RAG Destekli Chatbot ve SSS",
-    description: "Staj süreçleri hakkında sıkça sorulan soruların ve RAG destekli yapay zeka cevaplarının sunulduğu bölüm.",
+    description: "Staj süreçleri hakkında sıkça sorulan soruların ve RAG destekli yapay zeka asistanının verdiği detaylı, yönetmeliklere uygun cevapların sunulduğu bölüm.",
     images: [
-      sss
+      sss,
+      sssYeni,
+      yonetmelik,
+      chatbotSoru,
+      chatbotSoru2,
+      chatbotSoru3,
+      chatbotSoru4,
+      chatbotSoru5,
+      chatbotSoru6,
+      chatbotSoruAkademik
     ]
   },
   {
     title: "Kimlik Doğrulama & Kurtarma",
-    description: "Kullanıcıların güvenli erişim sağladığı ve şifre kurtarma işlemlerini gerçekleştirdiği sayfa.",
+    description: "Kullanıcıların sisteme güvenli giriş yaptığı, kayıt olduğu ve şifre kurtarma işlemlerini gerçekleştirdiği sayfalar.",
     images: [
+      girisYap,
+      kayitOl,
+      kayitOl2,
+      kayitOl3,
       sifreUnuttum
     ]
-  }
+  },
+  // Eğer klasörde "Ekran görüntüsü..." ile başlayan dosyalar varsa yeni bir özellik olarak ekle
+  ...(ekranGoruntuleri.length > 0 ? [{
+    title: "Sistemden Diğer Ekranlar",
+    description: "Projenin çeşitli aşamalarından, öğrenci, firma ve staj komisyonu etkileşimlerinden alınmış genel ekran görüntüleri.",
+    images: ekranGoruntuleri
+  }] : [])
 ];
 
 export default function Gallery() {
@@ -180,13 +228,13 @@ export default function Gallery() {
                   <>
                     <button 
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-teal-500 text-white backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover/modal:opacity-100 hover:scale-110"
+                      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button 
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-teal-500 text-white backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover/modal:opacity-100 hover:scale-110"
+                      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-teal-500 text-white backdrop-blur-md border border-white/20 transition-all opacity-100 md:opacity-0 md:group-hover/modal:opacity-100 hover:scale-110 shadow-lg active:scale-95"
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
